@@ -1,0 +1,1963 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCFHS Prometric Exam - 100 Unique Level 4 Vignettes</title>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-hover: #1d4ed8;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #0f172a;
+            --border: #cbd5e1;
+            --success: #15803d;
+            --danger: #b91c1c;
+            --warning-bg: #fef3c7;
+            --warning-border: #f59e0b;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: var(--primary);
+            color: #ffffff;
+            padding: 2rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .header p {
+            margin: 0;
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        .container {
+            max-width: 920px;
+            margin: 2rem auto;
+            padding: 0 1rem 4rem 1rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .candidate-form label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            font-size: 0.9rem;
+        }
+
+        .candidate-form input {
+            width: 100%;
+            padding: 0.6rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 1rem;
+        }
+
+        .chapter-header {
+            background: #eff6ff;
+            border-left: 4px solid var(--primary);
+            padding: 1rem;
+            margin: 2.5rem 0 1.2rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .chapter-header h2 {
+            margin: 0;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .question-card {
+            position: relative;
+        }
+
+        .question-title {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.05rem;
+        }
+
+        .clinical-story {
+            margin-bottom: 0.75rem;
+            font-size: 0.98rem;
+            color: #334155;
+            background: #f1f5f9;
+            padding: 0.85rem;
+            border-radius: 6px;
+            border-left: 3px solid #64748b;
+        }
+
+        .question-stem {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 0.98rem;
+            color: #0f172a;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .option-btn {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background: #fff;
+            cursor: pointer;
+            text-align: left;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+        }
+
+        .option-btn:hover {
+            background-color: #f1f5f9;
+            border-color: #cbd5e1;
+        }
+
+        .option-btn input {
+            margin-top: 0.25rem;
+        }
+
+        .rationale-box {
+            display: none;
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 6px;
+            background-color: #f8fafc;
+            border-left: 4px solid var(--primary);
+            font-size: 0.9rem;
+        }
+
+        .operator-section {
+            background: #1e293b;
+            color: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 3rem;
+        }
+
+        .operator-section h3 {
+            margin-top: 0;
+            color: #38bdf8;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 0.5rem;
+        }
+
+        .auth-box {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .auth-box input {
+            padding: 0.5rem;
+            border-radius: 4px;
+            border: 1px solid #475569;
+            background: #0f172a;
+            color: #fff;
+        }
+
+        .btn {
+            padding: 0.6rem 1.2rem;
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: var(--primary-hover);
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.1rem;
+            background: #16a34a;
+            margin-top: 1rem;
+        }
+
+        .btn-submit:hover {
+            background: #15803d;
+        }
+
+        .score-banner {
+            display: none;
+            background: var(--warning-bg);
+            border: 2px solid var(--warning-border);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .score-banner h2 {
+            margin: 0 0 0.5rem 0;
+            color: #92400e;
+        }
+
+        pre {
+            background: #0f172a;
+            color: #38bdf8;
+            padding: 1rem;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>SCFHS PROMETRIC EXAMINATION - LEVEL 4 TEST BANK</h1>
+    <p>100 Completely Independent & Standardized Clinical Vignettes (Bab I - V)</p>
+</div>
+
+<div class="container">
+
+    <!-- Form Identitas Peserta -->
+    <div class="card candidate-form">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div>
+                <label for="candidate-name">Test Taker Name / Nama Peserta:</label>
+                <input type="text" id="candidate-name" placeholder="Masukkan nama lengkap">
+            </div>
+            <div>
+                <label for="candidate-id">ID / Phone Number / No. HP:</label>
+                <input type="text" id="candidate-id" placeholder="Masukkan ID atau nomor telepon">
+            </div>
+        </div>
+    </div>
+
+    <!-- Banner Hasil Evaluasi -->
+    <div id="score-banner" class="score-banner">
+        <h2>HASIL EVALUASI UJIAN</h2>
+        <p id="score-text" style="font-size: 1.2rem; font-weight: bold;"></p>
+        <p id="score-analysis"></p>
+    </div>
+
+    <!-- Container Soal Ujian -->
+    <form id="exam-form">
+        <div id="questions-container"></div>
+        <button type="button" class="btn btn-submit" onclick="submitExam()">SUBMIT & KALKULASI SKOR</button>
+    </form>
+
+    <!-- Panel Kontrol Operator / Evaluator -->
+    <div class="operator-section">
+        <h3>OPERATOR ACCESS PANEL</h3>
+        <p style="font-size: 0.85rem; color: #94a3b8;">Restricted Access for Authorized Evaluators Only</p>
+        
+        <div class="auth-box">
+            <input type="password" id="master-password" placeholder="Enter Access Key">
+            <button class="btn" type="button" onclick="unlockRationales()">Unlock Master Keys</button>
+        </div>
+
+        <div id="rationales-key-container" style="display: none;">
+            <h4>MASTER ANSWER KEY & MULTI-PERSPECTIVE RATIONALES</h4>
+            <pre id="rationales-text"></pre>
+        </div>
+    </div>
+
+</div>
+
+<script>
+// Master Data Bank Soal 100% Mandiri (100 Unique Items, 20 per Bab)
+const rawQuestions = [
+    // ==========================================
+    // BAB I: LANDASAN PSIKOMETRI & UJI KOHORT BANK SOAL SCFHS (Item 1 - 20)
+    // ==========================================
+    {
+        id: 1,
+        chapter: "BAB I: LANDASAN PSIKOMETRI & UJI KOHORT BANK SOAL SCFHS",
+        title: "Question 1 (Pneumothorax Management)",
+        story: "A 62-year-old male on mechanical ventilation following CABG experiences sudden oxygen saturation drop from 96% to 81%, right-sided tracheal deviation, and absent breath sounds on the left chest.",
+        question: "Which action represents the nurse's immediate priority?",
+        options: [
+            "Obtain an urgent portable chest X-ray to confirm pneumothorax",
+            "Auscultate bilateral lung fields and readjust the endotracheal tube depth",
+            "Prepare for immediate needle chest decompression on the affected side",
+            "Call the attending surgeon and document acute respiratory deterioration"
+        ],
+        correctIndex: 2,
+        rationales: "NCLEX: D | STR: B | SCFHS: C\nRationale: Tension pneumothorax is an immediate life-threatening crisis causing hemodynamic collapse. Needle decompression is the mandatory immediate action."
+    },
+    {
+        id: 2,
+        chapter: "BAB I: LANDASAN PSIKOMETRI & UJI KOHORT BANK SOAL SCFHS",
+        title: "Question 2 (Vancomycin Reaction Safety Gate)",
+        story: "A 45-year-old female receiving IV Vancomycin infusion at 100 mL/hr develops facial flushing, erythematous neck rash, and warmth. BP is 112/70 mmHg, HR 88 bpm.",
+        question: "Which intervention should the nurse implement FIRST?",
+        options: [
+            "Discontinue Vancomycin permanently and notify provider of anaphylaxis",
+            "Administer IV Epinephrine 1:1000 STAT for anaphylactic shock",
+            "Reduce the Vancomycin infusion rate by half and monitor symptoms",
+            "Place the patient in Trendelenburg position and activate Rapid Response"
+        ],
+        correctIndex: 2,
+        rationales: "NCLEX: A | STR: D | SCFHS: C\nRationale: Red Man Syndrome is non-IgE histamine release caused by rapid infusion. Reducing infusion rate resolves symptoms while maintaining necessary antibiotic therapy."
+    },
+    {
+        id: 3,
+        chapter: "BAB I: LANDASAN PSIKOMETRI & UJI KOHORT BANK SOAL SCFHS",
+        title: "Question 3 (Verbal Medication Order Safety)",
+        story: "During a non-emergent sterile dressing change, the attending physician verbally orders: 'Administer 5 mg IV Morphine push for post-op pain.'",
+        question: "What is the nurse's safest professional action?",
+        options: [
+            "Administer IV Morphine immediately to maintain pain control",
+            "Repeat the order back word-for-word before administering the drug",
+            "Refuse to execute verbal order and request electronic order entry",
+            "Ask a second nurse to co-sign the verbal order after administration"
+        ],
+        correctIndex: 2,
+        rationales: "NCLEX: B | STR: D | SCFHS: C\nRationale: SCFHS safety standards forbid verbal orders in non-emergency situations to eliminate preventable medication errors."
+    },
+    {
+        id: 4,
+        chapter: "BAB I: LANDASAN PSIKOMETRI & UJI KOHORT BANK SOAL SCFHS",
+        title: "Question 4 (Hyperkalemia Membrane Stabilization)",
+        story: "An ESRD patient's lab results show K+ 7.4 mEq/L. The cardiac monitor reveals tall, peaked T-waves and widening QRS complexes. BP is 100/60 mmHg.",
+        question: "Which drug order must be executed FIRST?",
+        options: [
+            "Oral Sodium Polystyrene Sulfonate (Kayexalate)",
+            "IV Regular Insulin 10 Units with 50% Dextrose",
+            "IV Calcium Gluconate over 5 minutes",
+            "Continuous nebulized Albuterol therapy"
+        ],
+        correctIndex: 2,
+        rationales: "NCLEX: B | STR: A | SCFHS: C\nRationale: Calcium gluconate stabilizes cardiac myocytes immediately to prevent lethal ventricular fibrillation, before driving potassium intracellularly."
+    },
+    {
+        id: 5,
+        chapter: "BAB I: LANDASAN PSIKOMETRI & UJI KOHORT BANK SOAL SCFHS",
+        title: "Question 5 (Pediatric Croup Management)",
+        story: "A 3-year-old child presents to the emergency department with loud inspiratory stridor at rest, sternal retractions, and extreme crying agitation.",
+        question: "What is the primary nursing action?",
+        options: [
+            "Examine throat using a tongue blade to assess upper airway obstruction",
+            "Keep child in parent's lap and provide humidified cool mist",
+            "Perform immediate deep suctioning of the nasopharynx",
+            "Administer oral sedatives to reduce the child's breathing work"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: C | STR: A | SCFHS: B\nRationale: Minimizing agitation prevents complete upper airway spasm. Parental comfort with cool mist is the initial priority intervention."
+    },
+    {
+        id: 6,
+        chapter: "BAB I: LANDASAN PSIKOMETRI & UJI KOHORT BANK SOAL SCFHS",
+        title: "Question 6 (Prioritization - Acute PE)",
+        story: "The nurse is prioritizing four patients at shift change: A) Post-cholecystectomy with 6/10 pain, B) Diabetic with glucose 210 mg/dL, C) COPD patient with SpO2 89%, D) Patient with DVT reporting sudden dyspnea and sharp chest pain.",
+        question: "Which patient requires the FIRST immediate assessment?",
+        options: [
+            "Post-cholecystectomy patient requesting analgesia",
+            "Diabetic patient awaiting sliding scale insulin",
+            "COPD patient on oxygen therapy",
+            "DVT patient reporting acute dyspnea and chest pain"
+        ],
+        correctIndex: 3,
+        rationales: "NCLEX: A | STR: B | SCFHS: D\nRationale: Sudden dyspnea in a DVT patient indicates pulmonary embolism, representing an immediate threat to life."
+    },
+    {
+        id: 7,
+        chapter: "BAB I: LANDASAN PSIKOMETRI & UJI KOHORT BANK SOAL SCFHS",
+        title: "Question 7 (Delegation Safety Limits)",
+        story: "The nurse observes an Unlicensed Assistive Personnel (UAP) caring for a patient 12 hours post-total hip arthroplasty.",
+        question: "Which action by the UAP demands IMMEDIATE intervention?",
+        options: [
+            "Positioning an abduction pillow between the patient's legs",
+            "Elevating head of bed to 80 degrees during lunch meal",
+            "Placing a warm heating pad directly over the surgical dressing",
+            "Assisting patient to transfer using a rigid gait belt"
+        ],
+        correctIndex: 2,
+        rationales: "NCLEX: B | STR: D | SCFHS: C\nRationale: Direct heat application on acute post-op wounds causes severe vasodilation/hemorrhage and exceeds UAP scope."
+    },
+    {
+        id: 8,
+        chapter: "BAB I: LANDASAN PSIKOMETRI & UJI KOHORT BANK SOAL SCFHS",
+        title: "Question 8 (Magnesium Toxicity Screening)",
+        story: "A preeclamptic patient receives IV Magnesium Sulfate at 2 g/hr. During hourly monitoring, the nurse notes patellar reflexes +1, BP 120/80 mmHg, urine output 40 mL/hr, and respiratory rate 10 bpm.",
+        question: "What is the nurse's immediate priority?",
+        options: [
+            "Continue infusion and recheck reflexes in 1 hour",
+            "Increase IV fluid rate to enhance magnesium clearance",
+            "Stop Magnesium Sulfate infusion immediately",
+            "Document findings as normal therapeutic response"
+        ],
+        correctIndex: 2,
+        rationales: "NCLEX: A | STR: D | SCFHS: C\nRationale: Respiratory depression (<12 bpm) indicates toxic serum magnesium levels. Stopping the infusion is mandatory to prevent respiratory arrest."
+    },
+    {
+        id: 9,
+        chapter: "BAB I: LANDASAN PSIKOMETRI & UJI KOHORT BANK SOAL SCFHS",
+        title: "Question 9 (ICP Positioning Safety)",
+        story: "A traumatic brain injury patient has an intraventricular catheter showing an ICP of 24 mmHg (normal: 5-15 mmHg).",
+        question: "Which nursing position is strictly CONTRAINDICATED?",
+        options: [
+            "Head of bed elevated 30 degrees",
+            "Head maintained in neutral midline alignment",
+            "Extreme hip flexion beyond 90 degrees",
+            "Log-rolling patient during repositioning"
+        ],
+        correctIndex: 2,
+        rationales: "NCLEX: A | STR: B | SCFHS: C\nRationale: Extreme hip flexion increases intrathoracic/intra-abdominal pressure, impeding venous drainage from the head and spiking ICP."
+    },
+    {
+        id: 10,
+        chapter: "BAB I: LANDASAN PSIKOMETRI & UJI KOHORT BANK SOAL SCFHS",
+        title: "Question 10 (Psychiatric De-escalation)",
+        story: "A patient with schizophrenia pacing rapidly shouts: 'The voices are telling me you are a monster and I must destroy you!'",
+        question: "What is the nurse's FIRST response?",
+        options: [
+            "Ask the patient to describe what the monster looks like",
+            "Argue firmly that there are no monsters in the unit",
+            "Maintain safe distance, speak calmly, and call for staff support",
+            "Immediately apply four-point mechanical physical restraints"
+        ],
+        correctIndex: 2,
+        rationales: "NCLEX: A | STR: D | SCFHS: C\nRationale: Safety gate priority: Maintain physical distance to prevent assault while securing adequate staff support for de-escalation."
+    },
+    {
+        id: 11,
+        chapter: "BAB I: LANDASAN PSIKOMETRI & UJI KOHORT BANK SOAL SCFHS",
+        title: "Question 11 (Compartment Syndrome Identification)",
+        story: "A patient 6 hours post-tibia cast application reports severe excruciating leg pain (9/10) that is completely unrelieved by IV Morphine. The toes are pale and cool.",
+        question: "What action should the nurse take FIRST?",
+        options: [
+            "Elevate the extremity above heart level on three pillows",
+            "Apply hot moist packs to relieve arterial vasospasm",
+            "Notify orthopedic surgeon immediately and keep extremity at heart level",
+            "Administer additional dose of prescribed oral analgesics"
+        ],
+        correctIndex: 2,
+        rationales: "NCLEX: A | STR: D | SCFHS: C\nRationale: Unrelieved pain post-cast indicates compartment syndrome. Extremity must be kept at heart level (not elevated) and surgeon notified immediately."
+    },
+    {
+        id: 12,
+        chapter: "BAB I: LANDASAN PSIKOMETRI & UJI KOHORT BANK SOAL SCFHS",
+        title: "Question 12 (Tracheostomy Dislodgement)",
+        story: "While turning a bedridden patient, the tracheostomy tube is accidentally dislodged from a mature stoma site (placed 2 weeks ago).",
+        question: "Which action should the nurse perform FIRST?",
+        options: [
+            "Cover the stoma with sterile gauze and apply manual pressure",
+            "Insert obturator into spare tracheostomy tube and reinsert into stoma",
+            "Call anesthesia team for emergency endotracheal intubation",
+            "Ventilate patient using bag-valve-mask over nose and mouth"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: D | STR: C | SCFHS: B\nRationale: In a mature stoma (>7 days), immediate reinsertion using spare tube and obturator maintains airway patency."
+    },
+    {
+        id: 13,
+        chapter: "BAB I: LANDASAN PSIKOMETRI & UJI KOHORT BANK SOAL SCFHS",
+        title: "Question 13 (Autonomic Dysreflexia Action)",
+        story: "A spinal cord injury patient (T4 level) reports sudden throbbing headache, severe nasal congestion, and BP 210/110 mmHg.",
+        question: "What is the nurse's immediate FIRST step?",
+        options: [
+            "Administer IV Hydralazine STAT as prescribed",
+            "Elevate head of bed to high-Fowler's (90 degrees)",
+            "Check Foley catheter tubing for kinks or obstruction",
+            "Perform digital rectal examination for fecal impaction"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: C | STR: D | SCFHS: B\nRationale: Elevating HOB utilizes orthostatic mechanism to immediately lower BP before identifying and removing noxious stimulus."
+    },
+    {
+        id: 14,
+        chapter: "BAB I: LANDASAN PSIKOMETRI & UJI KOHORT BANK SOAL SCFHS",
+        title: "Question 14 (Thyroidectomy Airway Safety)",
+        story: "A patient 4 hours post-subtotal thyroidectomy reports feeling 'tightness in the neck' and displays noisy inspiratory stridor.",
+        question: "Which bedside equipment is MOST critical to ensure immediate safety?",
+        options: [
+            "Suction canister and catheter kit",
+            "Emergency tracheostomy tray and oxygen mask",
+            "Parenteral Calcium Gluconate ampoules",
+            "Incentive spirometer device"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: C | STR: A | SCFHS: B\nRationale: Tracheal compression from hematoma requires immediate emergency airway intervention using emergency tracheostomy tray."
+    },
+    {
+        id: 15,
+        chapter: "BAB I: LANDASAN PSIKOMETRI & UJI KOHORT BANK SOAL SCFHS",
+        title: "Question 15 (Myocardial Infarction MONA Prioritization)",
+        story: "A 58-year-old male arrives at ED with crushing substernal chest pain radiating to jaw, diaphoresis, and BP 140/90 mmHg. ECG shows ST elevation in V1-V4.",
+        question: "Which drug should be administered FIRST if oxygen saturation is 98%?",
+        options: [
+            "High-flow Oxygen via non-rebreather mask",
+            "Aspirin 325 mg chewed immediately",
+            "Sublingual Nitroglycerin spray",
+            "IV Morphine Sulfate 2 mg"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: B | STR: C | SCFHS: B\nRationale: Aspirin inhibits platelet aggregation immediately and reduces mortality in STEMI. High flow O2 is not indicated for SpO2 >90%."
+    },
+    {
+        id: 16,
+        chapter: "BAB I: LANDASAN PSIKOMETRI & UJI KOHORT BANK SOAL SCFHS",
+        title: "Question 16 (Chest Tube Disconnection)",
+        story: "A chest tube connected to a water seal drain system becomes accidentally disconnected at the patient catheter joint site.",
+        question: "What is the IMMEDIATE emergency nursing action?",
+        options: [
+            "Clamp chest tube immediately near insertion site with padded forceps",
+            "Submerge distal end of open chest tube in bottle of sterile saline",
+            "Apply sterile occlusive dressing over catheter insertion site",
+            "Notify physician and request immediate chest X-ray"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: A | STR: C | SCFHS: B\nRationale: Submerging tube in sterile saline creates an immediate temporary water seal without risking tension pneumothorax from clamping."
+    },
+    {
+        id: 17,
+        chapter: "BAB I: LANDASAN PSIKOMETRI & UJI KOHORT BANK SOAL SCFHS",
+        title: "Question 17 (Cerebral Angiography Post-Op Care)",
+        story: "A patient returns from femoral cerebral angiography. The nurse notes small hematoma formation and loss of distal pedal pulse on right leg.",
+        question: "What is the PRIORITY nursing action?",
+        options: [
+            "Apply warm compress over right femoral puncture site",
+            "Elevate right leg above heart level",
+            "Apply firm manual pressure over femoral site and call physician STAT",
+            "Encourage patient to ambulate to promote collateral circulation"
+        ],
+        correctIndex: 2,
+        rationales: "NCLEX: B | STR: A | SCFHS: C\nRationale: Loss of pulse with hematoma indicates acute arterial occlusion/hemorrhage. Manual pressure stops bleeding while securing immediate surgical response."
+    },
+    {
+        id: 18,
+        chapter: "BAB I: LANDASAN PSIKOMETRI & UJI KOHORT BANK SOAL SCFHS",
+        title: "Question 18 (C. Diff Infestation Control)",
+        story: "A patient hospitalized for 10 days develops watery diarrhea tested positive for Clostridium difficile.",
+        question: "Which infection control practice is MANDATORY?",
+        options: [
+            "Place patient in droplet isolation room",
+            "Perform hand hygiene exclusively using alcohol rub",
+            "Wash hands thoroughly with antimicrobial soap and water",
+            "Wear surgical mask upon entering patient room"
+        ],
+        correctIndex: 2,
+        rationales: "NCLEX: B | STR: D | SCFHS: C\nRationale: C. difficile spores are resistant to alcohol sanitizers. Mechanical friction with soap and water is mandatory."
+    },
+    {
+        id: 19,
+        chapter: "BAB I: LANDASAN PSIKOMETRI & UJI KOHORT BANK SOAL SCFHS",
+        title: "Question 19 (Anaphylactic Shock First Action)",
+        story: "A patient receiving IV Ceftriaxone reports throat tightness, generalized urticaria, and severe stridor. BP drops to 80/40 mmHg.",
+        question: "Which intervention must be executed FIRST?",
+        options: [
+            "Administer IM Epinephrine 1:1000 into mid-outer thigh",
+            "Administer IV Diphenhydramine 50 mg",
+            "Start high volume IV Normal Saline bolus",
+            "Administer IV Hydrocortisone 100 mg"
+        ],
+        correctIndex: 0,
+        rationales: "NCLEX: B | STR: C | SCFHS: A\nRationale: IM Epinephrine is the primary drug of choice for anaphylaxis, reversing bronchospasm and cardiovascular collapse."
+    },
+    {
+        id: 20,
+        chapter: "BAB I: LANDASAN PSIKOMETRI & UJI KOHORT BANK SOAL SCFHS",
+        title: "Question 20 (Lithium Toxicity Monitoring)",
+        story: "A bipolar patient taking Lithium Carbonate presents with severe coarse hand tremors, ataxia, blurred vision, and confusion.",
+        question: "What action should the nurse take immediately?",
+        options: [
+            "Administer next scheduled Lithium dose with full glass of water",
+            "Withhold Lithium dose and request serum Lithium level test",
+            "Advise patient to increase daily sodium intake drastically",
+            "Reassure patient that hand tremors are expected side effects"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: A | STR: D | SCFHS: B\nRationale: Symptoms signal severe lithium toxicity (>1.5 mEq/L). Drug must be withheld immediately and blood levels evaluated."
+    },
+
+    // ==========================================
+    // BAB II: DEEP DIVE: FILOSOFI SAFETY FIRST & PERBANDINGAN STRUKTURAL (Item 21 - 40)
+    // ==========================================
+    {
+        id: 21,
+        chapter: "BAB II: DEEP DIVE: FILOSOFI SAFETY FIRST & PERBANDINGAN STRUKTURAL",
+        title: "Question 21 (Hemolytic Transfusion Crisis)",
+        story: "Ten minutes into a Packed Red Blood Cell (PRBC) transfusion, the patient complains of severe lumbar back pain, fever, chills, and shortness of breath.",
+        question: "What is the nurse's immediate step?",
+        options: [
+            "Slow transfusion rate down to 50 mL/hr and re-check vital signs",
+            "Stop blood transfusion and disconnect administration tubing at IV hub",
+            "Administer IV Acetaminophen and Diphenhydramine as ordered",
+            "Send blood bag back to lab without disconnecting IV tubing"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: D | STR: C | SCFHS: B\nRationale: Disconnecting tubing at hub stops further entry of incompatible blood into blood vessels during acute hemolytic reaction."
+    },
+    {
+        id: 22,
+        chapter: "BAB II: DEEP DIVE: FILOSOFI SAFETY FIRST & PERBANDINGAN STRUKTURAL",
+        title: "Question 22 (Vasopressor Infusion Error)",
+        story: "An ICU nurse discovers Norepinephrine IV infusion is accidentally running at 10 times the ordered rate. BP is 220/130 mmHg.",
+        question: "What is the immediate priority action?",
+        options: [
+            "Perform immediate neurological assessment for stroke",
+            "Stop Norepinephrine infusion pump immediately",
+            "Administer prescribed IV Labetalol bolus",
+            "Document error in incident reporting software"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: A | STR: C | SCFHS: B\nRationale: Direct Action Safety Gate: Stopping source of medication toxicity is mandatory before secondary treatment."
+    },
+    {
+        id: 23,
+        chapter: "BAB II: DEEP DIVE: FILOSOFI SAFETY FIRST & PERBANDINGAN STRUKTURAL",
+        title: "Question 23 (C-Spine Airway Intervention)",
+        story: "A victim of a high-speed motor vehicle collision arrives unconscious with snoring respirations and suspected cervical spine injury.",
+        question: "Which airway clearance technique must be used?",
+        options: [
+            "Head-tilt / chin-lift maneuver",
+            "Jaw-thrust maneuver without head extension",
+            "Flexing head forward with pillow elevation",
+            "Lateral recovery positioning"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: A | STR: D | SCFHS: B\nRationale: Jaw-thrust maintains spinal immobilisation while establishing open upper airway."
+    },
+    {
+        id: 24,
+        chapter: "BAB II: DEEP DIVE: FILOSOFI SAFETY FIRST & PERBANDINGAN STRUKTURAL",
+        title: "Question 24 (Severe Hypoglycemia Direct Action)",
+        story: "A type 1 diabetic patient is found somnolent, diaphoresis present, fingerstick glucose reading 42 mg/dL.",
+        question: "What is the nurse's FIRST action for this conscious/arousable patient?",
+        options: [
+            "Re-check blood glucose in 30 minutes",
+            "Give 15 to 20 grams of fast-acting oral carbohydrates",
+            "Obtain venous blood sample for laboratory confirmation",
+            "Administer 10 units IV Regular Insulin"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: A | STR: C | SCFHS: B\nRationale: Direct Action: Oral fast-acting sugar raises serum glucose rapidly to protect cerebral functioning."
+    },
+    {
+        id: 25,
+        chapter: "BAB II: DEEP DIVE: FILOSOFI SAFETY FIRST & PERBANDINGAN STRUKTURAL",
+        title: "Question 25 (Post-Op Evisceration Response)",
+        story: "A patient 4 days post-open abdominal surgery coughs vigorously and states 'something popped.' The nurse observes bowel loops protruding from surgical incision.",
+        question: "What is the nurse's immediate priority intervention?",
+        options: [
+            "Gently push protruding bowel loops back into abdominal cavity",
+            "Cover exposed organs with sterile saline-moistened dressings",
+            "Place patient in high-Fowler's position immediately",
+            "Apply dry sterile compression bandage over wound"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: A | STR: C | SCFHS: B\nRationale: Saline-moistened dressings prevent tissue drying and ischemia. Pushing organs back causes severe trauma."
+    },
+    {
+        id: 26,
+        chapter: "BAB II: DEEP DIVE: FILOSOFI SAFETY FIRST & PERBANDINGAN STRUKTURAL",
+        title: "Question 26 (Eclampsia Seizure Safety)",
+        story: "A pregnant female with severe preeclampsia suddenly begins experiencing a generalized tonic-clonic seizure in bed.",
+        question: "Which action should the nurse take FIRST?",
+        options: [
+            "Insert padded tongue blade into patient's mouth",
+            "Turn patient onto side and protect head from injury",
+            "Administer IV Lorazepam push immediately",
+            "Restrain limbs firmly to prevent extremity fracture"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: A | STR: C | SCFHS: B\nRationale: Lateral positioning prevents aspiration and secures airway during active maternal seizure."
+    },
+    {
+        id: 27,
+        chapter: "BAB II: DEEP DIVE: FILOSOFI SAFETY FIRST & PERBANDINGAN STRUKTURAL",
+        title: "Question 27 (Heparin Induced Thrombocytopenia)",
+        story: "A patient on continuous IV Heparin for DVT shows drop in platelet count from 250,000/mcL to 85,000/mcL on day 5.",
+        question: "What is the nurse's PRIORITY action?",
+        options: [
+            "Stop IV Heparin infusion and notify physician",
+            "Administer oral Vitamin K as ordered",
+            "Slow Heparin infusion rate by half",
+            "Request immediate platelet transfusion"
+        ],
+        correctIndex: 0,
+        rationales: "NCLEX: B | STR: D | SCFHS: A\nRationale: Sudden 50% drop in platelets signals HIT. Heparin must be halted immediately to avoid paradoxical fatal thrombosis."
+    },
+    {
+        id: 28,
+        chapter: "BAB II: DEEP DIVE: FILOSOFI SAFETY FIRST & PERBANDINGAN STRUKTURAL",
+        title: "Question 28 (Extravasation Management)",
+        story: "During IV peripheral infusion of Dopamine, the nurse notes swelling, coldness, and blanched tissue surrounding insertion site.",
+        question: "What is the immediate initial step?",
+        options: [
+            "Apply hot moist pack over IV site",
+            "Stop infusion immediately and disconnect tubing",
+            "Inject Phentolamine into surrounding tissue through current catheter",
+            "Elevate extremity and flush catheter with normal saline"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: C | STR: A | SCFHS: B\nRationale: Halting vesicant infusion immediately prevents further severe ischemic tissue necrosis."
+    },
+    {
+        id: 29,
+        chapter: "BAB II: DEEP DIVE: FILOSOFI SAFETY FIRST & PERBANDINGAN STRUKTURAL",
+        title: "Question 29 (Central Line Air Embolism)",
+        story: "While removing a subclavian central venous catheter, the patient takes a deep breath and suddenly develops cyanosis, dyspnea, and hypotension.",
+        question: "In what position should the nurse place the patient FIRST?",
+        options: [
+            "High-Fowler's position",
+            "Trendelenburg on left side (Durant's maneuver)",
+            "Prone position with head lowered",
+            "Right lateral decubitus position"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: A | STR: C | SCFHS: B\nRationale: Left lateral Trendelenburg traps air embolism in right ventricle apex, preventing pulmonary artery occlusion."
+    },
+    {
+        id: 30,
+        chapter: "BAB II: DEEP DIVE: FILOSOFI SAFETY FIRST & PERBANDINGAN STRUKTURAL",
+        title: "Question 30 (Post-PCI Bleeding Gate)",
+        story: "Following femoral cardiac catheterization, the patient reports feeling 'wet' under buttocks. The nurse finds soft tissue swelling and active red blood pooling.",
+        question: "What is the FIRST action required?",
+        options: [
+            "Call cardiac catheterization lab team immediately",
+            "Apply manual firm compression 2 cm proximal to puncture site",
+            "Elevate head of bed to 45 degrees",
+            "Obtain STAT complete blood count and coagulation panel"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: A | STR: C | SCFHS: B\nRationale: Immediate direct pressure stops arterial arterial bleeding and prevents catastrophic hypovolemic shock."
+    },
+    {
+        id: 31,
+        chapter: "BAB II: DEEP DIVE: FILOSOFI SAFETY FIRST & PERBANDINGAN STRUKTURAL",
+        title: "Question 31 (Sucking Chest Wound Care)",
+        story: "A trauma patient presents with open penetrating chest wound emitting sucking sound during inspiration.",
+        question: "Which dressing application technique is mandated?",
+        options: [
+            "Four-sided fully occlusive pressure dressing",
+            "Three-sided occlusive dressing allowing air escape during expiration",
+            "Sterile dry porous gauze held by loose tape",
+            "Wet-to-dry saline packing"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: A | STR: D | SCFHS: B\nRationale: A three-sided dressing acts as a flutter valve, preventing tension pneumothorax build up."
+    },
+    {
+        id: 32,
+        chapter: "BAB II: DEEP DIVE: FILOSOFI SAFETY FIRST & PERBANDINGAN STRUKTURAL",
+        title: "Question 32 (Hypertensive Crisis Organ Protection)",
+        story: "A patient with hypertensive emergency (BP 230/140 mmHg) receives continuous IV Nitroprusside.",
+        question: "Which clinical parameter indicates severe Cyanide Toxicity from Nitroprusside?",
+        options: [
+            "Metabolic acidosis and altered mental status",
+            "Severe bradycardia and cardiac arrest",
+            "Profuse sweating and muscle hypertonia",
+            "Flushed skin and urinary retention"
+        ],
+        correctIndex: 0,
+        rationales: "NCLEX: B | STR: C | SCFHS: A\nRationale: High doses or prolonged infusion of Nitroprusside metabolizes to cyanide, causing cellular hypoxia and metabolic acidosis."
+    },
+    {
+        id: 33,
+        chapter: "BAB II: DEEP DIVE: FILOSOFI SAFETY FIRST & PERBANDINGAN STRUKTURAL",
+        title: "Question 33 (Ventilator Alarms Safety Gate)",
+        story: "A mechanically ventilated patient's high-pressure alarm sounds continuously. Patient is agitated, coughing, and cyanotic.",
+        question: "If troubleshooting fails to identify cause instantly, what must the nurse do FIRST?",
+        options: [
+            "Increase ventilator FiO2 setting to 100%",
+            "Disconnect patient from ventilator and ventilate manually with BVM",
+            "Administer IV Sedative STAT",
+            "Call respiratory therapist on call"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: A | STR: C | SCFHS: B\nRationale: Manual ventilation guarantees continuous oxygenation when mechanical equipment failure or severe airway obstruction is suspected."
+    },
+    {
+        id: 34,
+        chapter: "BAB II: DEEP DIVE: FILOSOFI SAFETY FIRST & PERBANDINGAN STRUKTURAL",
+        title: "Question 34 (Hyposthenuria Diabetes Insipidus)",
+        story: "Post-craniotomy patient exhibits urine output of 500 mL/hr over 2 consecutive hours, urine specific gravity 1.002, and intense thirst.",
+        question: "Which doctor order should the nurse anticipate executing?",
+        options: [
+            "IV Furosemide bolus",
+            "Desmopressin (DDAVP) sublingually/IV",
+            "50% Dextrose infusion",
+            "Fluid restriction to 800 mL/day"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: B | STR: D | SCFHS: B\nRationale: Massive dilute urine post-brain surgery signals DI due to ADH deficiency; DDAVP replaces lost antidiuretic hormone."
+    },
+    {
+        id: 35,
+        chapter: "BAB II: DEEP DIVE: FILOSOFI SAFETY FIRST & PERBANDINGAN STRUKTURAL",
+        title: "Question 35 (Paracentesis Hypotension Shield)",
+        story: "During removal of 4 Liters of peritoneal fluid via paracentesis, the patient's BP drops from 120/80 mmHg to 88/50 mmHg, HR increases to 118 bpm.",
+        question: "What prescribed IV therapy should be infused quickly?",
+        options: [
+            "IV Hypertonic 3% Saline",
+            "IV Human Albumin solution",
+            "IV Lactated Ringer's 2000 mL",
+            "Fresh Frozen Plasma"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: A | STR: C | SCFHS: B\nRationale: Albumin restores intravascular oncotic pressure, pulling fluid back into vascular spaces to treat paracentesis-induced circulatory dysfunction."
+    },
+    {
+        id: 36,
+        chapter: "BAB II: DEEP DIVE: FILOSOFI SAFETY FIRST & PERBANDINGAN STRUKTURAL",
+        title: "Question 36 (Aortic Aneurysm Dissection Sign)",
+        story: "A patient with history of hypertension reports sudden tearing, ripping chest pain radiating directly between shoulder blades.",
+        question: "Which vital sign assessment is CRITICAL?",
+        options: [
+            "Pulse oximetry in lower extremities",
+            "Blood pressure comparison between left and right arms",
+            "Apical-radial pulse deficit measurement",
+            "Respiratory rate during inspiration"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: A | STR: C | SCFHS: B\nRationale: Significant BP discrepancy (>20 mmHg) between arms strongly suggests aortic dissection propagation."
+    },
+    {
+        id: 37,
+        chapter: "BAB II: DEEP DIVE: FILOSOFI SAFETY FIRST & PERBANDINGAN STRUKTURAL",
+        title: "Question 37 (Myasthenic Crisis vs Cholinergic Crisis)",
+        story: "A Myasthenia Gravis patient experiences severe weakness and respiratory failure. Tensilon (Edrophonium) test is performed and shows dramatic TEMPORARY improvement.",
+        question: "What condition is confirmed by this test result?",
+        options: [
+            "Cholinergic Crisis",
+            "Myasthenic Crisis",
+            "Guillain-Barré Syndrome",
+            "Amyotrophic Lateral Sclerosis"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: A | STR: D | SCFHS: B\nRationale: Improvement with Tensilon confirms Myasthenic Crisis (under-medication), whereas worsening symptoms indicate Cholinergic Crisis."
+    },
+    {
+        id: 38,
+        chapter: "BAB II: DEEP DIVE: FILOSOFI SAFETY FIRST & PERBANDINGAN STRUKTURAL",
+        title: "Question 38 (Pacing Failure - Failure to Capture)",
+        story: "A patient with transvenous pacemaker displays pacemaker spikes on telemetry monitor NOT followed by QRS complexes.",
+        question: "Which condition does the nurse identify?",
+        options: [
+            "Failure to Sense",
+            "Failure to Capture",
+            "Failure to Pace",
+            "Normal Pacemaker Function"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: A | STR: C | SCFHS: B\nRationale: Spikes without depolarization (QRS) indicate Failure to Capture, requiring increased milliampere (mA) current output."
+    },
+    {
+        id: 39,
+        chapter: "BAB II: DEEP DIVE: FILOSOFI SAFETY FIRST & PERBANDINGAN STRUKTURAL",
+        title: "Question 39 (Severe Hypocalcemia Protection)",
+        story: "A patient post-parathyroidectomy develops positive Chvostek's sign, Trousseau's sign, and laryngeal spasm.",
+        question: "Which medication should be immediately accessible at bedside?",
+        options: [
+            "IV Potassium Chloride",
+            "IV Calcium Gluconate",
+            "IV Magnesium Sulfate",
+            "Oral Calcitriol"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: A | STR: C | SCFHS: B\nRationale: IV Calcium Gluconate reverses tetany and fatal laryngospasm caused by severe acute hypocalcemia."
+    },
+    {
+        id: 40,
+        chapter: "BAB II: DEEP DIVE: FILOSOFI SAFETY FIRST & PERBANDINGAN STRUKTURAL",
+        title: "Question 40 (Active Bleeding Peptic Ulcer)",
+        story: "A patient with peptic ulcer disease vomits 500 mL bright red blood. BP is 82/46 mmHg, HR 128 bpm, cap refill 4 seconds.",
+        question: "What is the primary intervention prior to endoscopy?",
+        options: [
+            "Administer oral antacids",
+            "Insert large-bore IV catheters and begin isotonic crystalloid fluid resuscitation",
+            "Administer IV Metoclopramide to stop vomiting",
+            "Place patient in reverse Trendelenburg"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: A | STR: C | SCFHS: B\nRationale: Large-bore IV line placement and rapid fluid volume replacement treat hemorrhagic shock to stabilize patient prior to diagnostic procedures."
+    },
+
+    // ==========================================
+    // BAB III: ANATOMI & POLA TIE-BREAKER DALAM ITEM SOAL (Item 41 - 60)
+    // ==========================================
+    {
+        id: 41,
+        chapter: "BAB III: ANATOMI & POLA TIE-BREAKER DALAM ITEM SOAL",
+        title: "Question 41 (Action vs Assessment Rule)",
+        story: "A post-thyroidectomy patient presents with sudden stridor, neck swelling, and respiratory distress.",
+        question: "Which choice correctly demonstrates the Action vs Assess tie-breaker rule?",
+        options: [
+            "Measure neck circumference with tape measure",
+            "Place patient in High-Fowler's and prepare emergency tracheostomy/cutdown tray",
+            "Re-assess breath sounds every 15 minutes",
+            "Obtain emergency ABG sample"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: D | STR: A | SCFHS: B\nRationale: Tie-breaker: In acute airway collapse, further assessment delays life-saving action. Immediate physical intervention is required."
+    },
+    {
+        id: 42,
+        chapter: "BAB III: ANATOMI & POLA TIE-BREAKER DALAM ITEM SOAL",
+        title: "Question 42 (Harm Mitigation Rule)",
+        story: "A patient undergoes an active tonic-clonic seizure while sitting in a chair.",
+        question: "What is the nurse's FIRST physical movement?",
+        options: [
+            "Insert soft airway into mouth",
+            "Guide patient carefully to floor and place in lateral position",
+            "Restrain arms to chair arms",
+            "Apply tight oxygen mask over face"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: A | STR: C | SCFHS: B\nRationale: Guiding patient to floor prevents fall injury and lateral position preserves airway."
+    },
+    {
+        id: 43,
+        chapter: "BAB III: ANATOMI & POLA TIE-BREAKER DALAM ITEM SOAL",
+        title: "Question 43 (Trauma Movement Rule)",
+        story: "An elderly patient falls in hospital hallway, complaining of severe right hip pain. The right leg appears shortened and externally rotated.",
+        question: "Which intervention must precede any patient movement?",
+        options: [
+            "Assist patient to sit up slowly",
+            "Assess neurovascular status of right lower extremity",
+            "Lift patient immediately onto stretcher",
+            "Perform passive range of motion on right hip"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: A | STR: D | SCFHS: B\nRationale: Assessment before movement prevents neurovascular severance caused by bone fragments."
+    },
+    {
+        id: 44,
+        chapter: "BAB III: ANATOMI & POLA TIE-BREAKER DALAM ITEM SOAL",
+        title: "Question 44 (Cardiogenic Shock Inotrope)",
+        story: "A post-MI patient shows signs of cardiogenic shock: BP 80/50 mmHg, PCWP 24 mmHg, Cardiac Index 1.6 L/min/m2.",
+        question: "Which intravenous continuous infusion is most appropriate?",
+        options: [
+            "Dobutamine",
+            "Metoprolol",
+            "Diltiazem",
+            "Furosemide high bolus"
+        ],
+        correctIndex: 0,
+        rationales: "NCLEX: B | STR: C | SCFHS: A\nRationale: Dobutamine increases myocardial contractility (positive inotrope) without significantly increasing oxygen demand or systemic vascular resistance."
+    },
+    {
+        id: 45,
+        chapter: "BAB III: ANATOMI & POLA TIE-BREAKER DALAM ITEM SOAL",
+        title: "Question 45 (Stroke Thrombolytic Window)",
+        story: "A patient arrives at ED with acute left-sided hemiparesis. CT scan of brain rules out hemorrhagic stroke.",
+        question: "What is the critical time window for IV Alteplase (tPA) administration from symptom onset?",
+        options: [
+            "Within 3 to 4.5 hours",
+            "Within 12 hours",
+            "Within 24 hours",
+            "Within 48 hours"
+        ],
+        correctIndex: 0,
+        rationales: "NCLEX: A | STR: D | SCFHS: A\nRationale: IV tPA for ischemic stroke is safe and effective only within the 3 to 4.5-hour therapeutic window."
+    },
+    {
+        id: 46,
+        chapter: "BAB III: ANATOMI & POLA TIE-BREAKER DALAM ITEM SOAL",
+        title: "Question 46 (DKA Fluid Resuscitation Sequence)",
+        story: "A DKA patient presents with blood glucose 580 mg/dL, serum K+ 5.2 mEq/L, severe dehydration, and arterial pH 7.12.",
+        question: "Which IV fluid should be initiated FIRST?",
+        options: [
+            "5% Dextrose in 0.45% Saline",
+            "0.9% Normal Saline 1 L/hr bolus",
+            "10% Dextrose in water",
+            "Lactated Ringer's with 20 mEq KCl"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: B | STR: C | SCFHS: B\nRationale: Restoring intravascular volume with 0.9% Normal Saline is the absolute initial step in DKA management before insulin or dextrose addition."
+    },
+    {
+        id: 47,
+        chapter: "BAB III: ANATOMI & POLA TIE-BREAKER DALAM ITEM SOAL",
+        title: "Question 47 (Burns Fluid Calculation Rule)",
+        story: "An adult patient weighing 70 kg suffers 40% Total Body Surface Area (TBSA) thermal burns.",
+        question: "Using Parkland Formula (4 mL x kg x % TBSA), how much Lactated Ringer's must be given in the FIRST 8 hours?",
+        options: [
+            "11,200 mL",
+            "5,600 mL",
+            "2,800 mL",
+            "1,400 mL"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: A | STR: B | SCFHS: B\nRationale: Total 24h volume = 4 x 70 x 40 = 11,200 mL. Half of total (5,600 mL) must be infused in first 8 hours."
+    },
+    {
+        id: 48,
+        chapter: "BAB III: ANATOMI & POLA TIE-BREAKER DALAM ITEM SOAL",
+        title: "Question 48 (Phenytoin IV Safety Gate)",
+        story: "An IV push order of Phenytoin (Dilantin) 500 mg is prescribed for active status epilepticus.",
+        question: "Which IV fluid is ONLY compatible with IV Phenytoin?",
+        options: [
+            "5% Dextrose in Water (D5W)",
+            "0.9% Normal Saline (0.9% NaCl)",
+            "Lactated Ringer's Solution",
+            "5% Dextrose in 0.45% Saline"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: A | STR: C | SCFHS: B\nRationale: Phenytoin precipitates instantly in dextrose solutions. It can only be mixed or flushed with 0.9% Normal Saline."
+    },
+    {
+        id: 49,
+        chapter: "BAB III: ANATOMI & POLA TIE-BREAKER DALAM ITEM SOAL",
+        title: "Question 49 (GCS Neurological Scoring)",
+        story: "A head injury patient opens eyes to painful stimuli, utters incomprehensible sounds, and flexes abnormally (decorticate posturing) to pain.",
+        question: "What is the calculated Glasgow Coma Scale (GCS) score?",
+        options: [
+            "GCS 7 (E2 V2 M3)",
+            "GCS 9 (E3 V3 M3)",
+            "GCS 5 (E1 V2 M2)",
+            "GCS 11 (E3 V4 M4)"
+        ],
+        correctIndex: 0,
+        rationales: "NCLEX: A | STR: C | SCFHS: A\nRationale: Eye opening to pain = 2; Incomprehensible sounds = 2; Decorticate flexion = 3. Total score = 7."
+    },
+    {
+        id: 50,
+        chapter: "BAB III: ANATOMI & POLA TIE-BREAKER DALAM ITEM SOAL",
+        title: "Question 50 (Sepsis Bundle Priority)",
+        story: "A septic shock patient has BP 82/40 mmHg, lactate 4.2 mmol/L, temperature 39.1°C.",
+        question: "Which action must occur BEFORE initiating broad-spectrum IV antibiotics?",
+        options: [
+            "Obtain two sets of blood cultures from different sites",
+            "Administer 30 mL/kg crystalloid bolus",
+            "Administer IV Vasopressin",
+            "Perform chest X-ray"
+        ],
+        correctIndex: 0,
+        rationales: "NCLEX: B | STR: C | SCFHS: A\nRationale: Obtaining blood cultures before antibiotic administration ensures accurate pathogen identification without delaying antibiotic start."
+    },
+    {
+        id: 51,
+        chapter: "BAB III: ANATOMI & POLA TIE-BREAKER DALAM ITEM SOAL",
+        title: "Question 51 (Acute Pancreatitis Lab Value)",
+        story: "A patient with severe acute epigastric pain radiating to back exhibits Grey Turner's sign.",
+        question: "Which diagnostic enzyme level is MOST specific for acute pancreatitis?",
+        options: [
+            "Serum Amylase",
+            "Serum Lipase",
+            "ALT / AST",
+            "Serum Bilirubin"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: A | STR: D | SCFHS: B\nRationale: Serum Lipase remains elevated longer and is significantly more specific for pancreatic tissue necrosis than Amylase."
+    },
+    {
+        id: 52,
+        chapter: "BAB III: ANATOMI & POLA TIE-BREAKER DALAM ITEM SOAL",
+        title: "Question 52 (Cushing's Triad Recognition)",
+        story: "An ICU patient with traumatic brain injury displays BP 190/60 mmHg, HR 42 bpm, and irregular Cheyne-Stokes respirations.",
+        question: "What does this cluster of vital signs signify?",
+        options: [
+            "Spinal shock",
+            "Cushing's Triad indicating herniation/increased ICP",
+            "Hypovolemic collapse",
+            "Autonomic dysreflexia"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: A | STR: C | SCFHS: B\nRationale: Severe systolic hypertension with widened pulse pressure, bradycardia, and bradypnea represent Cushing's Triad."
+    },
+    {
+        id: 53,
+        chapter: "BAB III: ANATOMI & POLA TIE-BREAKER DALAM ITEM SOAL",
+        title: "Question 53 (Hepatic Encephalopathy Drug)",
+        story: "A patient with liver cirrhosis has altered mental status and serum ammonia level of 110 mcg/dL.",
+        question: "Which drug is expected to promote ammonia excretion through bowel movements?",
+        options: [
+            "Lactulose",
+            "Spironolactone",
+            "Propranolol",
+            "Neomycin"
+        ],
+        correctIndex: 0,
+        rationales: "NCLEX: A | STR: D | SCFHS: A\nRationale: Lactulose traps ammonia in the colon and causes laxative evacuation (aiming for 2-3 soft stools/day)."
+    },
+    {
+        id: 54,
+        chapter: "BAB III: ANATOMI & POLA TIE-BREAKER DALAM ITEM SOAL",
+        title: "Question 54 (Ventilator Asynchrony Response)",
+        story: "A patient on mechanically ventilated AC mode is biting ETT catheter, fighting ventilator, with high pressure alarm sounding.",
+        question: "What immediate intervention should be taken first?",
+        options: [
+            "Insert bite block or oral airway",
+            "Increase Tidal Volume setting",
+            "Perform immediate endotracheal extubation",
+            "Administer IV Muscle Relaxant"
+        ],
+        correctIndex: 0,
+        rationales: "NCLEX: B | STR: C | SCFHS: A\nRationale: Biting tube obstructs airflow causing high-pressure alarms; placing bite block immediately removes mechanical airway occlusion."
+    },
+    {
+        id: 55,
+        chapter: "BAB III: ANATOMI & POLA TIE-BREAKER DALAM ITEM SOAL",
+        title: "Question 55 (ABG Compensation Analysis)",
+        story: "Lab results for COPD patient: pH 7.31, PaCO2 58 mmHg, HCO3 30 mEq/L, PaO2 65 mmHg.",
+        question: "How should the nurse interpret this ABG panel?",
+        options: [
+            "Uncompensated Respiratory Acidosis",
+            "Partially Compensated Respiratory Acidosis",
+            "Fully Compensated Metabolic Acidosis",
+            "Metabolic Alkalosis with hypoxia"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: A | STR: C | SCFHS: B\nRationale: Low pH (<7.35) with elevated PaCO2 (>45) indicates respiratory acidosis; elevated HCO3 (>26) shows kidney compensation underway."
+    },
+    {
+        id: 56,
+        chapter: "BAB III: ANATOMI & POLA TIE-BREAKER DALAM ITEM SOAL",
+        title: "Question 56 (Subdural vs Epidural Hematoma)",
+        story: "A head trauma patient experienced brief loss of consciousness, followed by a 'lucid interval' of normal mental status, then rapid sudden comatose collapse.",
+        question: "This clinical presentation is classic for which lesion?",
+        options: [
+            "Acute Subdural Hematoma",
+            "Epidural Hematoma (Arterial Bleed)",
+            "Subarachnoid Hemorrhage",
+            "Diffuse Axonal Injury"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: A | STR: D | SCFHS: B\nRationale: Rapid arterial tearing (middle meningeal artery) causes classic lucid interval followed by sudden neurological collapse in epidural hematoma."
+    },
+    {
+        id: 57,
+        chapter: "BAB III: ANATOMI & POLA TIE-BREAKER DALAM ITEM SOAL",
+        title: "Question 57 (Sickle Cell Vaso-Occlusive Crisis)",
+        story: "A 14-year-old with sickle cell anemia is admitted in severe vaso-occlusive crisis with pain rated 10/10 in extremities.",
+        question: "Which two interventions are the absolute TOP priorities?",
+        options: [
+            "High-dose Aspirin and Ice packs",
+            "IV Hydration fluids and Opioid Analgesia",
+            "Phlebotomy and Oxygen therapy",
+            "Bed rest and Passive range of motion"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: B | STR: C | SCFHS: B\nRationale: Rehydration reverses sickling occlusion and continuous IV opioids manage extreme ischemic pain."
+    },
+    {
+        id: 58,
+        chapter: "BAB III: ANATOMI & POLA TIE-BREAKER DALAM ITEM SOAL",
+        title: "Question 58 (Adrenal Crisis Rescue)",
+        story: "A patient with Addison's disease post-gastroenteritis presents with BP 70/40 mmHg, severe fatigue, hyponatremia, and hyperkalemia.",
+        question: "Which IV medication must be administered IMMEDIATELY?",
+        options: [
+            "IV Hydrocortisone sodium succinate",
+            "IV Regular Insulin",
+            "IV Fludrocortisone",
+            "IV Norepinephrine"
+        ],
+        correctIndex: 0,
+        rationales: "NCLEX: B | STR: C | SCFHS: A\nRationale: Acute Addisonian crisis involves lethal glucocorticoid deficiency. High-dose IV Hydrocortisone replacement is life-saving."
+    },
+    {
+        id: 59,
+        chapter: "BAB III: ANATOMI & POLA TIE-BREAKER DALAM ITEM SOAL",
+        title: "Question 59 (Guillain-Barré Syndrome Monitor)",
+        story: "A patient with Guillain-Barré syndrome exhibits ascending muscle weakness reaching chest level.",
+        question: "Which bed-side assessment parameter is MOST critical?",
+        options: [
+            "Forced Vital Capacity (FVC) and Negative Inspiratory Force",
+            "Deep tendon reflexes in lower limbs",
+            "Daily abdominal girth measurements",
+            "Serum Creatinine Kinase level"
+        ],
+        correctIndex: 0,
+        rationales: "NCLEX: A | STR: D | SCFHS: A\nRationale: Ascending paralysis involving diaphragm risks acute respiratory failure. Serial FVC monitoring detects need for intubation."
+    },
+    {
+        id: 60,
+        chapter: "BAB III: ANATOMI & POLA TIE-BREAKER DALAM ITEM SOAL",
+        title: "Question 60 (Compartment Pressure Limit)",
+        story: "An orthopedic patient's intracompartmental pressure is measured at 38 mmHg (normal: 0-8 mmHg).",
+        question: "Which surgical procedure should the nurse prepare the patient for immediately?",
+        options: [
+            "Closed reduction and casting",
+            "Emergency Fasciotomy",
+            "Joint arthroplasty",
+            "External fixation removal"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: A | STR: C | SCFHS: B\nRationale: Compartment pressure >30 mmHg impairs tissue perfusion; emergency fasciotomy relieves pressure to prevent limb necrosis."
+    },
+
+    // ==========================================
+    // BAB IV: VARIASI DISTRAKTOR BAHASA & LINGUISTIK KLINIKAL (Item 61 - 80)
+    // ==========================================
+    {
+        id: 61,
+        chapter: "BAB IV: VARIASI DISTRAKTOR BAHASA & LINGUISTIK KLINIKAL",
+        title: "Question 61 (Terminology Precision - Dressing)",
+        story: "A nurse finds an abdominal post-operative dressing saturated with bright red blood 2 hours after surgery.",
+        question: "Which phrase describes the CORRECT professional intervention?",
+        options: [
+            "Remove primary surgical dressing to inspect incision line",
+            "Reinforce initial dressing with sterile gauze pads and apply firm pressure",
+            "Irrigate wound line with sterile normal saline solution",
+            "Elevate feet and document findings in electronic chart"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: A | STR: C | SCFHS: B\nRationale: 'Reinforce' preserves surgeon's initial sterile barrier while controlling bleeding; removing primary dressing post-op invites infection/disruption."
+    },
+    {
+        id: 62,
+        chapter: "BAB IV: VARIASI DISTRAKTOR BAHASA & LINGUISTIK KLINIKAL",
+        title: "Question 62 (Delegation Terminology Scope)",
+        story: "The charge nurse assigns tasks on a medical-surgical ward.",
+        question: "Which task is legally appropriate to DELEGATE to Unlicensed Assistive Personnel (UAP)?",
+        options: [
+            "Evaluating pain relief 30 minutes post-IV Morphine",
+            "Instructing patient on incentive spirometer usage",
+            "Measuring and recording hourly urine volume from Foley bag",
+            "Assessing skin breakdown on sacrum of bedbound patient"
+        ],
+        correctIndex: 2,
+        rationales: "NCLEX: A | STR: D | SCFHS: C\nRationale: Measuring output is a standard routine skill. Assessment, evaluation, and teaching are non-delegable RN responsibilities."
+    },
+    {
+        id: 63,
+        chapter: "BAB IV: VARIASI DISTRAKTOR BAHASA & LINGUISTIK KLINIKAL",
+        title: "Question 63 (Linguistics - 'Immediate' vs 'Priority')",
+        story: "A patient with chronic heart failure presents with 3+ pitting bilateral edema, distended neck veins, and mild orthopnea.",
+        question: "What is the nurse's priority LONG-TERM dietary education term?",
+        options: [
+            "Strict Fluid Restriction",
+            "Sodium Restriction (< 2 g/day)",
+            "High Protein Diet",
+            "Potassium Elimination"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: A | STR: C | SCFHS: B\nRationale: Restricting sodium prevents fluid retention in chronic CHF, serving as foundational self-management education."
+    },
+    {
+        id: 64,
+        chapter: "BAB IV: VARIASI DISTRAKTOR BAHASA & LINGUISTIK KLINIKAL",
+        title: "Question 64 (Phrasing - Neutral Distractors)",
+        story: "A female patient undergoing chemotherapy reports nausea and loss of appetite.",
+        question: "Which dietary instruction uses accurate nursing terminology?",
+        options: [
+            "Offer large hot meals three times daily",
+            "Provide small, frequent meals served cold or at room temperature",
+            "Encourage high-fat foods before chemotherapy sessions",
+            "Restrict fluid intake completely between meal times"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: A | STR: D | SCFHS: B\nRationale: Small, cold or room-temperature foods minimize odor triggers and ease chemo-induced nausea."
+    },
+    {
+        id: 65,
+        chapter: "BAB IV: VARIASI DISTRAKTOR BAHASA & LINGUISTIK KLINIKAL",
+        title: "Question 65 (Clinical Vocabulary - 'Evisceration')",
+        story: "A patient's abdominal surgical wound separates completely with organ protrusion.",
+        question: "Which clinical term accurately documents this occurrence?",
+        options: [
+            "Dehiscence",
+            "Evisceration",
+            "Fistula formation",
+            "Maceration"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: A | STR: D | SCFHS: B\nRationale: Evisceration refers specifically to total wound separation with visceral organ protrusion."
+    },
+    {
+        id: 66,
+        chapter: "BAB IV: VARIASI DISTRAKTOR BAHASA & LINGUISTIK KLINIKAL",
+        title: "Question 66 (Medication Reconstitution Wording)",
+        story: "A nurse reconstitutes a powdered IV antibiotic vial with sterile water.",
+        question: "Which action ensures correct drug concentration according to protocol?",
+        options: [
+            "Shake vial vigorously for 10 seconds",
+            "Swirl vial gently until solution is completely clear and inspect for particulates",
+            "Warm vial under hot tap water before injection",
+            "Dilute with hypertonic dextrose solution"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: A | STR: C | SCFHS: B\nRationale: Gentle swirling prevents foaming/denaturation while inspection ensures complete dissolution."
+    },
+    {
+        id: 67,
+        chapter: "BAB IV: VARIASI DISTRAKTOR BAHASA & LINGUISTIK KLINIKAL",
+        title: "Question 67 (Postural Drainage Positioning Wording)",
+        story: "A cystic fibrosis patient requires postural drainage for bronchiectasis in right lower lung lobe.",
+        question: "Which position should the nurse place the patient in?",
+        options: [
+            "Right lateral position with head elevated",
+            "Left lateral Trendelenburg position",
+            "Prone position with head elevated 45 degrees",
+            "Supine position flat"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: A | STR: C | SCFHS: B\nRationale: Left lateral Trendelenburg allows gravity to drain secretions from the affected right lower lobe."
+    },
+    {
+        id: 68,
+        chapter: "BAB IV: VARIASI DISTRAKTOR BAHASA & LINGUISTIK KLINIKAL",
+        title: "Question 68 (Enteral Feeding Residual Vocabulary)",
+        story: "Before administering bolus enteral feeding via NG tube, the nurse aspirates 180 mL gastric residual volume.",
+        question: "Which action aligns with professional protocol wording?",
+        options: [
+            "Discard aspirated volume and administer full feed bolus",
+            "Return aspirated content to stomach and withhold current feeding",
+            "Flush NG tube with hot tap water and give feed",
+            "Administer double amount of prokinetic agent"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: B | STR: D | SCFHS: B\nRationale: Returning aspirate prevents electrolyte loss; withholding feed prevents aspiration risk when residual >150-200 mL."
+    },
+    {
+        id: 69,
+        chapter: "BAB IV: VARIASI DISTRAKTOR BAHASA & LINGUISTIK KLINIKAL",
+        title: "Question 69 (Insulin Mixing Sequence)",
+        story: "The nurse prepares a combined subcutaneous dose of NPH Insulin and Regular Insulin.",
+        question: "Which phrase correctly describes the order of air injection and medication withdrawal?",
+        options: [
+            "Draw NPH first, then draw Regular",
+            "Inject air into NPH, inject air into Regular, draw Regular, draw NPH",
+            "Inject air into Regular, inject air into NPH, draw NPH, draw Regular",
+            "Mix both vials together in single storage container"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: A | STR: C | SCFHS: B\nRationale: 'Clear before Cloudy' rule: Air into NPH -> Air into Regular -> Draw Regular -> Draw NPH."
+    },
+    {
+        id: 70,
+        chapter: "BAB IV: VARIASI DISTRAKTOR BAHASA & LINGUISTIK KLINIKAL",
+        title: "Question 70 (Restraint Order Specificity)",
+        story: "A violent psychiatric patient is placed in physical wrist restraints.",
+        question: "Which prescription documentation detail is MANDATORY?",
+        options: [
+            "PRN restraint order valid for 72 hours",
+            "Specific time-limited order renewed every 4 hours by physician for adults",
+            "Verbal order valid for entire hospitalization period",
+            "Nurse-initiated standing order without physician review"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: A | STR: D | SCFHS: B\nRationale: Safety regulations require time-limited (max 4 hours for adults), non-PRN restraint orders with frequent evaluation."
+    },
+    {
+        id: 71,
+        chapter: "BAB IV: VARIASI DISTRAKTOR BAHASA & LINGUISTIK KLINIKAL",
+        title: "Question 71 (Informed Consent RN Responsibility)",
+        story: "A patient scheduled for elective colectomy asks the nurse: 'I don't really understand what organs they are cutting out.'",
+        question: "What is the nurse's professional responsibility regarding consent?",
+        options: [
+            "Explain surgical steps in detail and have patient sign form",
+            "Notify surgeon to return and provide further surgical clarification before signing",
+            "Inform patient that signature is just a formality",
+            "Sign form as surrogate witness on behalf of patient"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: A | STR: C | SCFHS: B\nRationale: The surgeon is responsible for providing informed consent. RN witnesses signature authenticity only."
+    },
+    {
+        id: 72,
+        chapter: "BAB IV: VARIASI DISTRAKTOR BAHASA & LINGUISTIK KLINIKAL",
+        title: "Question 72 (LPN/VN Scope Boundary)",
+        story: "A stable patient 3 days post-knee surgery requires medication administration.",
+        question: "Which medication administration task can be delegated to a Licensed Practical Nurse (LPN)?",
+        options: [
+            "Initiating IV push cardiac vasopressor",
+            "Administering oral maintenance antihypertensive medication",
+            "Titrating continuous IV Heparin based on PTT",
+            "Administering blood blood transfusion PRBC"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: A | STR: D | SCFHS: B\nRationale: LPNs can administer stable oral routine medications. IV push, blood products, and titration require RN license."
+    },
+    {
+        id: 73,
+        chapter: "BAB IV: VARIASI DISTRAKTOR BAHASA & LINGUISTIK KLINIKAL",
+        title: "Question 73 (NPO Status Prior to Anesthesia)",
+        story: "A patient scheduled for elective general surgery at 08:00 AM asks about solid food intake.",
+        question: "According to standard preoperative guidelines, solid food intake should cease at least how many hours prior?",
+        options: [
+            "2 hours",
+            "4 hours",
+            "6 to 8 hours",
+            "12 to 24 hours"
+        ],
+        correctIndex: 2,
+        rationales: "NCLEX: A | STR: D | SCFHS: C\nRationale: Standard fasting for solid food is at least 6-8 hours to prevent pulmonary aspiration during endotracheal intubation."
+    },
+    {
+        id: 74,
+        chapter: "BAB IV: VARIASI DISTRAKTOR BAHASA & LINGUISTIK KLINIKAL",
+        title: "Question 74 (Suctioning Duration Wording)",
+        story: "The nurse performs endotracheal suctioning on a mechanically ventilated patient.",
+        question: "What is the MAXIMUM recommended duration for each suction catheter pass?",
+        options: [
+            "5 seconds",
+            "10 to 15 seconds",
+            "20 to 30 seconds",
+            "45 seconds"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: A | STR: C | SCFHS: B\nRationale: Limiting suction pass to 10-15 seconds prevents profound hypoxemia and vagal-induced bradycardia."
+    },
+    {
+        id: 75,
+        chapter: "BAB IV: VARIASI DISTRAKTOR BAHASA & LINGUISTIK KLINIKAL",
+        title: "Question 75 (PPD Mantoux Reading Wording)",
+        story: "An immunocompromised HIV-positive patient undergoes Mantoux Tuberculin skin test.",
+        question: "What induration size is interpreted as a POSITIVE result for this patient?",
+        options: [
+            "≥ 5 mm induration",
+            "≥ 10 mm induration",
+            "≥ 15 mm induration",
+            "Presence of erythema without induration"
+        ],
+        correctIndex: 0,
+        rationales: "NCLEX: A | STR: C | SCFHS: A\nRationale: In high-risk immunocompromised patients (HIV+), induration ≥ 5 mm is considered positive."
+    },
+    {
+        id: 76,
+        chapter: "BAB IV: VARIASI DISTRAKTOR BAHASA & LINGUISTIK KLINIKAL",
+        title: "Question 76 (Lithium Serum Therapeutic Window)",
+        story: "A patient taking Lithium for bipolar disorder attends outpatient monitoring.",
+        question: "Which range represents the standard therapeutic serum Lithium concentration for acute mania?",
+        options: [
+            "0.1 to 0.4 mEq/L",
+            "0.6 to 1.2 mEq/L",
+            "2.0 to 3.0 mEq/L",
+            "3.5 to 5.0 mEq/L"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: A | STR: D | SCFHS: B\nRationale: Therapeutic lithium level is 0.6–1.2 mEq/L. Toxicity begins above 1.5 mEq/L."
+    },
+    {
+        id: 77,
+        chapter: "BAB IV: VARIASI DISTRAKTOR BAHASA & LINGUISTIK KLINIKAL",
+        title: "Question 77 (Digoxin Toxicity Early Sign)",
+        story: "An elderly patient with heart failure receives Digoxin 0.25 mg daily.",
+        question: "Which symptom represents the EARLIEST clinical indicator of Digoxin toxicity?",
+        options: [
+            "Visual halos around lights",
+            "Anorexia, nausea, and vomiting",
+            "Ventricular bigeminy",
+            "Confusion and delirium"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: A | STR: D | SCFHS: B\nRationale: Gastrointestinal signs (anorexia, nausea, vomiting) appear first before cardiac dysrhythmias or visual disturbances."
+    },
+    {
+        id: 78,
+        chapter: "BAB IV: VARIASI DISTRAKTOR BAHASA & LINGUISTIK KLINIKAL",
+        title: "Question 78 (Warfarin Antidote Vocabulary)",
+        story: "A patient taking Warfarin (Coumadin) presents with active gastrointestinal bleeding and INR of 6.5.",
+        question: "Which antidote should the nurse prepare to administer?",
+        options: [
+            "Protamine Sulfate",
+            "Vitamin K1 (Phytonadione)",
+            "Aminocaproic Acid",
+            "Flumazenil"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: A | STR: D | SCFHS: B\nRationale: Vitamin K is the direct antagonist for Warfarin-induced anticoagulation."
+    },
+    {
+        id: 79,
+        chapter: "BAB IV: VARIASI DISTRAKTOR BAHASA & LINGUISTIK KLINIKAL",
+        title: "Question 79 (Unfractionated Heparin Lab Monitor)",
+        story: "A patient receives continuous IV Unfractionated Heparin infusion for pulmonary embolism.",
+        question: "Which laboratory parameter is monitored to adjust Heparin infusion rate?",
+        options: [
+            "Prothrombin Time (PT)",
+            "International Normalized Ratio (INR)",
+            "activated Partial Thromboplastin Time (aPTT)",
+            "Bleeding Time"
+        ],
+        correctIndex: 2,
+        rationales: "NCLEX: A | STR: D | SCFHS: C\nRationale: aPTT measures intrinsic coagulation pathway affected by Heparin (target 1.5-2.5x control)."
+    },
+    {
+        id: 80,
+        chapter: "BAB IV: VARIASI DISTRAKTOR BAHASA & LINGUISTIK KLINIKAL",
+        title: "Question 80 (Potassium Chloride IV Push Contraindication)",
+        story: "A nurse receives an IV order: 'Potassium Chloride 20 mEq IV push STAT for serum K+ 2.8 mEq/L.'",
+        question: "Why must the nurse REFUSE to execute this order as written?",
+        options: [
+            "Potassium Chloride causes rapid peripheral vein sclerosis",
+            "Direct IV push of Potassium Chloride causes fatal cardiac arrest",
+            "Potassium must only be administered via oral route",
+            "The dose is too low to raise serum potassium"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: A | STR: C | SCFHS: B\nRationale: IV push KCl causes immediate severe hyperkalemia in cardiac conduction pathways leading to fatal asystole. It must ALWAYS be diluted and infused via pump."
+    },
+
+    // ==========================================
+    // BAB V: MATRIKS VALIDITAS BANK SOAL (CHECKLIST EVALUASI ITEM WRITER) (Item 81 - 100)
+    // ==========================================
+    {
+        id: 81,
+        chapter: "BAB V: MATRIKS VALIDITAS BANK SOAL (CHECKLIST EVALUASI ITEM WRITER)",
+        title: "Question 81 (Cardiac Tamponade Beck's Triad)",
+        story: "A post-pericardiocentesis patient shows BP 82/50 mmHg, distended neck veins, and distant muffled heart sounds.",
+        question: "Which procedure must the nurse prepare for IMMEDIATELY?",
+        options: [
+            "Emergency Pericardiocentesis",
+            "Endotracheal Intubation",
+            "Chest tube insertion into pleural space",
+            "Hemodialysis"
+        ],
+        correctIndex: 0,
+        rationales: "NCLEX: C | STR: A | SCFHS: A\nRationale: Beck's triad (hypotension, JVD, muffled heart sounds) signals cardiac tamponade requiring immediate fluid decompression."
+    },
+    {
+        id: 82,
+        chapter: "BAB V: MATRIKS VALIDITAS BANK SOAL (CHECKLIST EVALUASI ITEM WRITER)",
+        title: "Question 82 (Post-Bronchoscopy Reflex Safety)",
+        story: "A patient returns to ward following flexible fiberoptic bronchoscopy under conscious sedation.",
+        question: "Which nursing evaluation MUST occur prior to offering oral fluids?",
+        options: [
+            "Auscultation of bowel sounds in four quadrants",
+            "Assessment of gag and swallow reflex",
+            "Measurement of 24-hour urine output",
+            "Checking pupillary light reaction"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: A | STR: C | SCFHS: B\nRationale: Topical anesthesia suppresses gag reflex. Testing gag reflex prevents catastrophic aspiration."
+    },
+    {
+        id: 83,
+        chapter: "BAB V: MATRIKS VALIDITAS BANK SOAL (CHECKLIST EVALUASI ITEM WRITER)",
+        title: "Question 83 (Anemia Parenteral Iron Safety)",
+        story: "A severe iron deficiency anemia patient is ordered IV Iron Dextran.",
+        question: "Which safety protocol is mandatory prior to infusing full dose?",
+        options: [
+            "Administer small IV test dose and observe for 15-30 minutes",
+            "Pre-medicate with high-dose IV Loop Diuretic",
+            "Infuse full dose rapidly over 5 minutes",
+            "Check serum potassium level"
+        ],
+        correctIndex: 0,
+        rationales: "NCLEX: A | STR: D | SCFHS: A\nRationale: IV Iron Dextran carries significant risk of fatal anaphylaxis; a test dose is mandatory."
+    },
+    {
+        id: 84,
+        chapter: "BAB V: MATRIKS VALIDITAS BANK SOAL (CHECKLIST EVALUASI ITEM WRITER)",
+        title: "Question 84 (Meningitis Isolation Protocols)",
+        story: "A college student admitted with suspected Neisseria meningitidis infection presents with petechial rash and nuchal rigidity.",
+        question: "Which isolation category is mandatory for first 24 hours of antibiotic therapy?",
+        options: [
+            "Contact Isolation",
+            "Droplet Precautions",
+            "Airborne Isolation",
+            "Standard Precautions only"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: A | STR: D | SCFHS: B\nRationale: N. meningitidis transmits via respiratory droplets; droplet precautions are mandatory until 24h effective antibiotic treatment."
+    },
+    {
+        id: 85,
+        chapter: "BAB V: MATRIKS VALIDITAS BANK SOAL (CHECKLIST EVALUASI ITEM WRITER)",
+        title: "Question 85 (Thyroid Storm Hyperthermia)",
+        story: "A patient with severe Hyperthyroidism develops temperature 40.5°C, HR 160 bpm, extreme agitation, and delirium.",
+        question: "Which antipyretic drug is CONTRAINDICATED during Thyroid Storm?",
+        options: [
+            "Acetaminophen",
+            "Aspirin (Acetylsalicylic Acid)",
+            "Ibuprofen",
+            "Cooling blankets"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: A | STR: C | SCFHS: B\nRationale: Aspirin displaces thyroid hormone from binding proteins, increasing free T3/T4 levels and worsening thyroid storm."
+    },
+    {
+        id: 86,
+        chapter: "BAB V: MATRIKS VALIDITAS BANK SOAL (CHECKLIST EVALUASI ITEM WRITER)",
+        title: "Question 86 (Phenelzine MAOI Dietary Rule)",
+        story: "A depressed patient is prescribed Phenelzine (MAO inhibitor).",
+        question: "Which food item must be STRICTLY EXCLUDED from diet to prevent hypertensive crisis?",
+        options: [
+            "Fresh apples and oranges",
+            "Aged cheeses, salami, and red wine",
+            "Boiled white rice and chicken breast",
+            "Pasteurized milk and butter"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: A | STR: D | SCFHS: B\nRationale: Tyramine-rich aged foods combined with MAOIs trigger massive catecholamine release causing fatal hypertensive crisis."
+    },
+    {
+        id: 87,
+        chapter: "BAB V: MATRIKS VALIDITAS BANK SOAL (CHECKLIST EVALUASI ITEM WRITER)",
+        title: "Question 87 (Wilms Tumor Abdominal Safety)",
+        story: "A 2-year-old child admitted with suspected Wilms tumor (nephroblastoma) has a soft palpable flank mass.",
+        question: "Which warning sign MUST be posted above the child's bed?",
+        options: [
+            "Strict NPO Status",
+            "DO NOT PALPATE ABDOMEN",
+            "Frequent Abdominal Girth Measurements",
+            "Reverse Isolation"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: A | STR: D | SCFHS: B\nRationale: Abdominal palpation can rupture fragile Wilms tumor capsule, spreading malignant cells throughout peritoneum."
+    },
+    {
+        id: 88,
+        chapter: "BAB V: MATRIKS VALIDITAS BANK SOAL (CHECKLIST EVALUASI ITEM WRITER)",
+        title: "Question 88 (Rheumatoid Arthritis Morning Stiffness)",
+        story: "A patient with rheumatoid arthritis reports severe morning joint stiffness lasting 2 hours.",
+        question: "Which intervention best relieves morning joint stiffness?",
+        options: [
+            "Apply ice packs directly to joints upon waking",
+            "Take a warm bath or shower immediately upon arising",
+            "Perform vigorous high-impact aerobic exercise",
+            "Remain completely immobile in bed for first 3 hours"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: A | STR: D | SCFHS: B\nRationale: Moist heat relaxes stiffened periarticular tissues and promotes joint flexibility in RA."
+    },
+    {
+        id: 89,
+        chapter: "BAB V: MATRIKS VALIDITAS BANK SOAL (CHECKLIST EVALUASI ITEM WRITER)",
+        title: "Question 89 (Cleft Lip Post-Op Positioning)",
+        story: "An infant undergoes surgical repair of cleft lip (cheiloplasty).",
+        question: "Which body position is essential post-operatively to protect suture line?",
+        options: [
+            "Prone position",
+            "On back (supine) or side-lying",
+            "Trendelenburg position",
+            "Flat on abdomen with head turned"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: A | STR: D | SCFHS: B\nRationale: Supine positioning prevents infant from rubbing repaired surgical suture line against bed sheets."
+    },
+    {
+        id: 90,
+        chapter: "BAB V: MATRIKS VALIDITAS BANK SOAL (CHECKLIST EVALUASI ITEM WRITER)",
+        title: "Question 90 (Scoliosis Milwaukee Brace Education)",
+        story: "An adolescent female with idiopathic scoliosis is fitted with Milwaukee brace.",
+        question: "Which instruction regarding brace wearing is correct?",
+        options: [
+            "Wear brace directly over bare skin",
+            "Wear thin cotton t-shirt under brace to prevent skin breakdown",
+            "Remove brace while sleeping at night",
+            "Loosen brace straps if red marks appear over bony prominences"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: A | STR: D | SCFHS: B\nRationale: Wearing a soft cotton shirt underneath absorbs sweat and prevents skin friction breakdown from rigid brace."
+    },
+    {
+        id: 91,
+        chapter: "BAB V: MATRIKS VALIDITAS BANK SOAL (CHECKLIST EVALUASI ITEM WRITER)",
+        title: "Question 91 (Autistic Child Nursing Environment)",
+        story: "An 8-year-old child diagnosed with Autism Spectrum Disorder is admitted to pediatric unit.",
+        question: "Which room placement is most appropriate?",
+        options: [
+            "Near nurses' station with high activity",
+            "Private room with low sensory stimulation and consistent staff",
+            "Four-bed ward with multiple playmates",
+            "Directly opposite emergency exit door"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: A | STR: D | SCFHS: B\nRationale: Minimizing sensory input (noise/lights) and maintaining routine prevents behavioral overload in autistic children."
+    },
+    {
+        id: 92,
+        chapter: "BAB V: MATRIKS VALIDITAS BANK SOAL (CHECKLIST EVALUASI ITEM WRITER)",
+        title: "Question 92 (Delirium vs Dementia Differentiation)",
+        story: "An 82-year-old postoperative patient suddenly exhibits fluctuating confusion, disorientation, and auditory hallucinations over 6 hours.",
+        question: "Which condition is represented by this acute onset presentation?",
+        options: [
+            "Alzheimer's Dementia",
+            "Acute Delirium",
+            "Vascular Dementia",
+            "Schizophrenia"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: A | STR: D | SCFHS: B\nRationale: Delirium is characterized by sudden/acute onset, fluctuating course, and reversible underlying medical cause."
+    },
+    {
+        id: 93,
+        chapter: "BAB V: MATRIKS VALIDITAS BANK SOAL (CHECKLIST EVALUASI ITEM WRITER)",
+        title: "Question 93 (Electroconvulsive Therapy Pre-Op)",
+        story: "A severely depressed patient is scheduled for morning Electroconvulsive Therapy (ECT).",
+        question: "Which medication should be administered pre-procedure to dry secretions and prevent vagal bradycardia?",
+        options: [
+            "Atropine Sulfate",
+            "Succinylcholine",
+            "Methohexital",
+            "Diazepam"
+        ],
+        correctIndex: 0,
+        rationales: "NCLEX: A | STR: D | SCFHS: A\nRationale: Atropine is an anticholinergic given prior to ECT to reduce oral secretions and block vagal bradycardia during induced seizure."
+    },
+    {
+        id: 94,
+        chapter: "BAB V: MATRIKS VALIDITAS BANK SOAL (CHECKLIST EVALUASI ITEM WRITER)",
+        title: "Question 94 (Pernicious Anemia Therapy)",
+        story: "A patient post-gastrectomy develops numbness/tingling in fingers, smooth beefy red tongue, and macrocytic anemia.",
+        question: "Which lifelong replacement therapy is mandatory?",
+        options: [
+            "Oral Ferrous Sulfate",
+            "Intramuscular Vitamin B12 (Cyanocobalamin)",
+            "Oral Folic Acid",
+            "Blood Transfusions weekly"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: A | STR: D | SCFHS: B\nRationale: Total gastrectomy eliminates intrinsic factor production, requiring lifelong IM Vitamin B12 administration."
+    },
+    {
+        id: 95,
+        chapter: "BAB V: MATRIKS VALIDITAS BANK SOAL (CHECKLIST EVALUASI ITEM WRITER)",
+        title: "Question 95 (Cushing's Syndrome Physical Findings)",
+        story: "A patient taking high-dose oral Prednisone for 2 years presents for physical assessment.",
+        question: "Which cluster of physical findings aligns with Cushing's Syndrome?",
+        options: [
+            "Weight loss, bronze skin pigmentation, hypotension",
+            "Moon face, buffalo hump, purple abdominal striae, hyperglycemia",
+            "Exophthalmos, pretibial myxedema, tachycardia",
+            "Tremors, goiter, heat intolerance"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: A | STR: D | SCFHS: B\nRationale: Hypercortisolism causes supraclavicular fat pad deposits (buffalo hump), facial edema (moon face), muscle wasting, and purple striae."
+    },
+    {
+        id: 96,
+        chapter: "BAB V: MATRIKS VALIDITAS BANK SOAL (CHECKLIST EVALUASI ITEM WRITER)",
+        title: "Question 96 (Surgical Time-Out Mandate)",
+        story: "In the operating room prior to initial skin incision, the surgical team pauses.",
+        question: "What is the primary purpose of the mandatory 'Time-Out' procedure?",
+        options: [
+            "To verify surgeon credentials and license",
+            "To confirm correct patient, correct surgical site, and correct procedure",
+            "To calculate total anesthesia charges",
+            "To allow nursing shift handover"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: A | STR: D | SCFHS: B\nRationale: Surgical Time-Out is a critical safety gate that prevents wrong-site, wrong-procedure, and wrong-person surgical errors."
+    },
+    {
+        id: 97,
+        chapter: "BAB V: MATRIKS VALIDITAS BANK SOAL (CHECKLIST EVALUASI ITEM WRITER)",
+        title: "Question 97 (Pacemaker Defibrillation Safety)",
+        story: "A cardiac arrest patient has a permanent pacemaker implanted under left clavicle.",
+        question: "Where should the nurse place the automated external defibrillator (AED) pads?",
+        options: [
+            "Directly over pacemaker generator bulge",
+            "At least 1 to 2 inches away from pacemaker generator site",
+            "On patient's abdomen",
+            "AED is strictly contraindicated in pacemaker patients"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: A | STR: D | SCFHS: B\nRationale: AED pads placed directly over pacemaker generators block current delivery and damage device. Maintain distance."
+    },
+    {
+        id: 98,
+        chapter: "BAB V: MATRIKS VALIDITAS BANK SOAL (CHECKLIST EVALUASI ITEM WRITER)",
+        title: "Question 98 (Cystic Fibrosis Enzyme Timing)",
+        story: "A child with cystic fibrosis is prescribed pancreatic enzyme capsules (Pancrelipase).",
+        question: "When should the parent administer these enzymes?",
+        options: [
+            "Once daily at bedtime",
+            "Immediately before or with all meals and snacks",
+            "Two hours after meals",
+            "Only when abdominal pain occurs"
+        ],
+        correctIndex: 1,
+        rationales: "NCLEX: A | STR: D | SCFHS: B\nRationale: Pancreatic enzymes must be present in duodenum concurrently with food intake to digest fats, proteins, and carbohydrates."
+    },
+    {
+        id: 99,
+        chapter: "BAB V: MATRIKS VALIDITAS BANK SOAL (CHECKLIST EVALUASI ITEM WRITER)",
+        title: "Question 99 (Gout Allopurinol Mechanism)",
+        story: "A patient with chronic gouty arthritis receives Allopurinol daily.",
+        question: "What is the primary therapeutic action of Allopurinol?",
+        options: [
+            "Inhibits uric acid production by blocking xanthine oxidase",
+            "Increases renal uric acid excretion",
+            "Direct analgesic pain relief",
+            "Dissolves tophi instantly"
+        ],
+        correctIndex: 0,
+        rationales: "NCLEX: A | STR: D | SCFHS: A\nRationale: Allopurinol inhibits xanthine oxidase enzyme, preventing conversion of purines into uric acid."
+    },
+    {
+        id: 100,
+        chapter: "BAB V: MATRIKS VALIDITAS BANK SOAL (CHECKLIST EVALUASI ITEM WRITER)",
+        title: "Question 100 (Buerger's Disease Smoking Cessation)",
+        story: "A 32-year-old male with Thromboangiitis Obliterans (Buerger's disease) presents with painful ischemic ulcerations on toes.",
+        question: "Which lifestyle modification is the ABSOLUTE MANDATORY priority to halt disease progression?",
+        options: [
+            "Complete and permanent smoking cessation",
+            "Adopting a strict low-fat diet",
+            "Rigorous daily weightlifting",
+            "Taking daily low-dose aspirin"
+        ],
+        correctIndex: 0,
+        rationales: "NCLEX: A | STR: D | SCFHS: A\nRationale: Tobacco exposure is the direct trigger for vascular inflammation in Buerger's disease. Absolute smoking cessation is the only way to prevent limb amputation."
+    }
+];
+
+// Helper Function: Shuffle options array while updating correct index accurately
+function shuffleOptions(options, correctIdx) {
+    let arr = options.map((opt, i) => ({ text: opt, isCorrect: i === correctIdx }));
+    for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    const newCorrectIdx = arr.findIndex(item => item.isCorrect);
+    return {
+        shuffledTexts: arr.map(item => item.text),
+        newCorrectIndex: newCorrectIdx
+    };
+}
+
+// Generate the final processed 100 items with randomized option order
+const examData = rawQuestions.map(q => {
+    const shuffled = shuffleOptions(q.options, q.correctIndex);
+    return {
+        id: q.id,
+        chapter: q.chapter,
+        title: q.title,
+        story: q.story,
+        question: q.question,
+        options: shuffled.shuffledTexts,
+        answerLetter: String.fromCharCode(65 + shuffled.newCorrectIndex),
+        rationales: q.rationales
+    };
+});
+
+// Render All Questions to UI
+function renderQuestions() {
+    const container = document.getElementById('questions-container');
+    let currentChapter = "";
+
+    examData.forEach(q => {
+        if (q.chapter !== currentChapter) {
+            currentChapter = q.chapter;
+            const chapHeader = document.createElement('div');
+            chapHeader.className = 'chapter-header';
+            chapHeader.innerHTML = `<h2>${currentChapter}</h2>`;
+            container.appendChild(chapHeader);
+        }
+
+        const card = document.createElement('div');
+        card.className = 'card question-card';
+        card.id = `q-card-${q.id}`;
+
+        let optionsHTML = "";
+        q.options.forEach((opt, optIdx) => {
+            const optLetter = String.fromCharCode(65 + optIdx);
+            optionsHTML += `
+                <label class="option-btn">
+                    <input type="radio" name="question-${q.id}" value="${optLetter}">
+                    <span><strong>${optLetter}.</strong> ${opt}</span>
+                </label>
+            `;
+        });
+
+        card.innerHTML = `
+            <div class="question-title">${q.title}</div>
+            <div class="clinical-story"><strong>Clinical Scenario:</strong> ${q.story}</div>
+            <div class="question-stem">${q.question}</div>
+            <div class="options">${optionsHTML}</div>
+            <div class="rationale-box" id="rationale-${q.id}">
+                <strong>Rationales:</strong><br>${q.rationales.replace(/\n/g, '<br>')}
+            </div>
+        `;
+
+        container.appendChild(card);
+    });
+}
+
+// Calculate Score
+function submitExam() {
+    let score = 0;
+    const total = examData.length;
+
+    examData.forEach(q => {
+        const selected = document.querySelector(`input[name="question-${q.id}"]:checked`);
+        const card = document.getElementById(`q-card-${q.id}`);
+
+        if (selected) {
+            if (selected.value === q.answerLetter) {
+                score++;
+                card.style.borderColor = "var(--success)";
+            } else {
+                card.style.borderColor = "var(--danger)";
+            }
+        } else {
+            card.style.borderColor = "var(--border)";
+        }
+    });
+
+    const percentage = Math.round((score / total) * 100);
+    const scoreBanner = document.getElementById('score-banner');
+    const scoreText = document.getElementById('score-text');
+    const scoreAnalysis = document.getElementById('score-analysis');
+
+    scoreBanner.style.display = 'block';
+    scoreText.innerText = `Skor Anda: ${score} / ${total} (${percentage}%)`;
+
+    if (percentage >= 75) {
+        scoreAnalysis.innerText = "STATUS: PASS (Lulus Standard Kompetensi SCFHS Prometric)";
+        scoreAnalysis.style.color = "var(--success)";
+    } else {
+        scoreAnalysis.innerText = "STATUS: FAIL (Perlu Pendalaman Filosofi Direct Action & Safety First)";
+        scoreAnalysis.style.color = "var(--danger)";
+    }
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Unlock Master Rationales for Operator
+function unlockRationales() {
+    const password = document.getElementById('master-password').value;
+    if (password === 'variant_2026') {
+        document.getElementById('rationales-key-container').style.display = 'block';
+        
+        let rationalesText = "";
+        examData.forEach(q => {
+            rationalesText += `Question ${q.id} [${q.chapter}]\nAnswer: ${q.answerLetter}\n${q.rationales}\n----------------------------------------\n`;
+        });
+        document.getElementById('rationales-text').innerText = rationalesText;
+
+        // Tampilkan inline rationales pada setiap card
+        examData.forEach(q => {
+            const ratBox = document.getElementById(`rationale-${q.id}`);
+            if (ratBox) ratBox.style.display = 'block';
+        });
+
+        alert("Access Granted: Master Rationales Unlocked.");
+    } else {
+        alert("Access Denied: Invalid Key.");
+    }
+}
+
+// Initialize on page load
+window.onload = renderQuestions;
+</script>
+
+</body>
+</html>
