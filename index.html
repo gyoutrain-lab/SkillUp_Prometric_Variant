@@ -239,6 +239,50 @@
             font-size: 0.85rem;
             white-space: pre-wrap;
         }
+
+        /* Specific styling for category breakdown report */
+        .category-report-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 1.5rem 0;
+            text-align: left;
+        }
+        .category-card {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            padding: 1rem;
+            border-radius: 6px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        .category-card h4 {
+            margin: 0 0 0.5rem 0;
+            color: var(--primary);
+            font-size: 1rem;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.3rem;
+        }
+        .category-card p {
+            margin: 0.25rem 0;
+            font-size: 0.9rem;
+        }
+        .status-box {
+            font-size: 1.25rem;
+            font-weight: bold;
+            padding: 0.75rem;
+            border-radius: 6px;
+            margin-top: 1rem;
+        }
+        .status-pass {
+            background-color: #dcfce7;
+            color: #15803d;
+            border: 1px solid #86efac;
+        }
+        .status-fail {
+            background-color: #fee2e2;
+            color: #b91c1c;
+            border: 1px solid #fca5a5;
+        }
     </style>
 </head>
 <body>
@@ -267,8 +311,8 @@
     <!-- Banner Hasil Evaluasi -->
     <div id="score-banner" class="score-banner">
         <h2>HASIL EVALUASI UJIAN</h2>
-        <p id="score-text" style="font-size: 1.2rem; font-weight: bold;"></p>
-        <p id="score-analysis"></p>
+        <div id="category-breakdown"></div>
+        <div id="pass-fail-status"></div>
     </div>
 
     <!-- Container Soal Ujian -->
@@ -1835,7 +1879,33 @@ function shuffleOptions(options, correctIdx) {
 
 // Generate the final processed 100 items with randomized option order
 const examData = rawQuestions.map(q => {
+    // Extract standards keys from rationales string
+    // Format is "NCLEX: X | STR: Y | SCFHS: Z"
+    let nclexTarget = "";
+    let strTarget = "";
+    let scfhsTarget = "";
+    const match = q.rationales.match(/NCLEX:\s*([A-D])\s*\|\s*STR:\s*([A-D])\s*\|\s*SCFHS:\s*([A-D])/i);
+    if (match) {
+        nclexTarget = match[1].toUpperCase();
+        strTarget = match[2].toUpperCase();
+        scfhsTarget = match[3].toUpperCase();
+    }
+
     const shuffled = shuffleOptions(q.options, q.correctIndex);
+    
+    // Map initial rationale letters to shuffled position letters
+    const origIndexToLetter = (idx) => String.fromCharCode(65 + idx);
+    const letterToOrigIndex = (letter) => letter.charCodeAt(0) - 65;
+    
+    // Function to map original target option letter to the new shuffled option letter
+    const mapTargetLetter = (targetLetter) => {
+        if (!targetLetter) return "";
+        const origIdx = letterToOrigIndex(targetLetter);
+        const optionText = q.options[origIdx];
+        const newIdx = shuffled.shuffledTexts.indexOf(optionText);
+        return origIndexToLetter(newIdx);
+    };
+
     return {
         id: q.id,
         chapter: q.chapter,
@@ -1844,7 +1914,12 @@ const examData = rawQuestions.map(q => {
         question: q.question,
         options: shuffled.shuffledTexts,
         answerLetter: String.fromCharCode(65 + shuffled.newCorrectIndex),
-        rationales: q.rationales
+        rationales: q.rationales,
+        targets: {
+            NCLEX: mapTargetLetter(nclexTarget),
+            STR: mapTargetLetter(strTarget),
+            SCFHS: mapTargetLetter(scfhsTarget)
+        }
     };
 });
 
@@ -1891,9 +1966,11 @@ function renderQuestions() {
     });
 }
 
-// Calculate Score
+// Calculate Score with Detailed Standard Breakdown Report
 function submitExam() {
-    let score = 0;
+    let scfhsCorrect = 0;
+    let strCorrect = 0;
+    let nclexCorrect = 0;
     const total = examData.length;
 
     examData.forEach(q => {
@@ -1901,8 +1978,21 @@ function submitExam() {
         const card = document.getElementById(`q-card-${q.id}`);
 
         if (selected) {
-            if (selected.value === q.answerLetter) {
-                score++;
+            const val = selected.value;
+            let isCorrectSCFHS = false;
+
+            if (val === q.targets.SCFHS) {
+                scfhsCorrect++;
+                isCorrectSCFHS = true;
+            }
+            if (val === q.targets.STR) {
+                strCorrect++;
+            }
+            if (val === q.targets.NCLEX) {
+                nclexCorrect++;
+            }
+
+            if (isCorrectSCFHS) {
                 card.style.borderColor = "var(--success)";
             } else {
                 card.style.borderColor = "var(--danger)";
@@ -1912,20 +2002,42 @@ function submitExam() {
         }
     });
 
-    const percentage = Math.round((score / total) * 100);
+    const scfhsPct = Math.round((scfhsCorrect / total) * 100);
+    const strPct = Math.round((strCorrect / total) * 100);
+    const nclexPct = Math.round((nclexCorrect / total) * 100);
+
     const scoreBanner = document.getElementById('score-banner');
-    const scoreText = document.getElementById('score-text');
-    const scoreAnalysis = document.getElementById('score-analysis');
+    const breakdownDiv = document.getElementById('category-breakdown');
+    const statusDiv = document.getElementById('pass-fail-status');
 
     scoreBanner.style.display = 'block';
-    scoreText.innerText = `Skor Anda: ${score} / ${total} (${percentage}%)`;
 
-    if (percentage >= 75) {
-        scoreAnalysis.innerText = "STATUS: PASS (Lulus Standard Kompetensi SCFHS Prometric)";
-        scoreAnalysis.style.color = "var(--success)";
+    breakdownDiv.innerHTML = `
+        <div class="category-report-grid">
+            <div class="category-card">
+                <h4>STR Standard</h4>
+                <p><strong>Correct:</strong> ${strCorrect} / ${total}</p>
+                <p><strong>Percentage:</strong> ${strPct}%</p>
+            </div>
+            <div class="category-card">
+                <h4>NCLEX Standard</h4>
+                <p><strong>Correct:</strong> ${nclexCorrect} / ${total}</p>
+                <p><strong>Percentage:</strong> ${nclexPct}%</p>
+            </div>
+            <div class="category-card" style="border-color: var(--primary);">
+                <h4>SCFHS Standard</h4>
+                <p><strong>Correct:</strong> ${scfhsCorrect} / ${total}</p>
+                <p><strong>Percentage:</strong> ${scfhsPct}%</p>
+            </div>
+        </div>
+    `;
+
+    if (scfhsPct > 50) {
+        statusDiv.className = "status-box status-pass";
+        statusDiv.innerHTML = `STATUS: PASSED (${scfhsPct}% - Above 50% Threshold for SCFHS Standard)`;
     } else {
-        scoreAnalysis.innerText = "STATUS: FAIL (Perlu Pendalaman Filosofi Direct Action & Safety First)";
-        scoreAnalysis.style.color = "var(--danger)";
+        statusDiv.className = "status-box status-fail";
+        statusDiv.innerHTML = `STATUS: NOT PASSED (${scfhsPct}% - Below or Equal to 50% Threshold for SCFHS Standard)`;
     }
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
